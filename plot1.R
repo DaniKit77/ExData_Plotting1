@@ -1,0 +1,7 @@
+data <- read.table("./household_power_consumption.txt", header = TRUE, sep = ";", stringsAsFactors = FALSE)
+rm(data)
+png('plot1.png',width = 480, height = 480)
+TwoDay <- filter(data, Date == "1/2/2007" | Date == "2/2/2007")
+y <- as.numeric(TwoDay$Global_active_power)
+hist(y, col = "red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
+dev.off()
